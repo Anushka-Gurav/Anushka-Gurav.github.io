@@ -24,6 +24,7 @@
     youtube: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z"/></svg>',
     medium: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="6.8" cy="12" rx="6.8" ry="6.9"/><ellipse cx="17.6" cy="12" rx="3.4" ry="6.5"/><ellipse cx="22.6" cy="12" rx="1.4" ry="5.8"/></svg>',
     external: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>',
+    trophy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/></svg>',
     arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
   };
 
@@ -75,10 +76,15 @@
     $("#expList").insertAdjacentHTML("beforeend", D.experience.map(x => `
       <article class="exp-item reveal">
         <div class="t-card exp-card spot">
-          <div class="t-card__top"><h3>${esc(x.role)}</h3><span class="t-card__period">${esc(x.period)}</span></div>
-          <p class="exp-card__company">${esc(x.company)}</p>
+          <div class="t-card__top"><h3>${esc(x.role)}</h3><span class="t-card__period">${esc(x.period)}${x.duration ? ` · ${esc(x.duration)}` : ""}</span></div>
+          <div class="exp-card__brand">${x.logo ? `<span class="exp-card__logo"><img src="${esc(x.logo)}" alt="${esc(x.company)} logo" loading="lazy"></span>` : ""}<p class="exp-card__company">${esc(x.company)}</p></div>
           ${x.location ? `<p class="exp-card__meta">${esc(x.location)}</p>` : ""}
           <ul>${x.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+          ${x.awards && x.awards.length ? `<div class="exp-awards"><p class="exp-awards__head">${ICON.trophy}Awards &amp; recognition</p>${x.awards.map(a => `
+            <a class="exp-award" ${a.image ? `href="${esc(a.image)}" target="_blank" rel="noopener" title="View certificate"` : ""}>
+              ${a.image ? `<img class="exp-award__thumb" src="${esc(a.image)}" alt="${esc(a.title)} recognition certificate" loading="lazy">` : ""}
+              <span class="exp-award__text"><b>${esc(a.title)}</b><span>${esc(a.detail)}</span><small>${esc(a.date)}${a.by ? ` · by ${esc(a.by)}` : ""}</small></span>
+            </a>`).join("")}</div>` : ""}
           <ul class="chips">${(x.tech || []).map(t => `<li>${esc(t)}</li>`).join("")}</ul>
         </div>
       </article>`).join(""));
@@ -148,8 +154,7 @@
 
     // contact
     const mail = $("#contactMail");
-    mail.textContent = D.email;
-    mail.href = `mailto:${D.email}`;
+    if (mail) mail.remove(); // email address is not displayed on the page
     const socials = { ...D.socials, mail: `mailto:${D.email}` };
     $("#socials").innerHTML = Object.entries(socials)
       .filter(([k, v]) => v && ICON[k])

@@ -398,7 +398,8 @@ body.ready .hero__actions, body.ready .dash-stats { opacity: 1; transform: none;
 .section { max-width: var(--max); margin: 0 auto; padding: clamp(80px, 12vw, 150px) var(--pad) 0; }
 .section__head { margin-bottom: clamp(36px, 6vw, 64px); }
 .section__title {
-  font-size: clamp(2.8rem, 9vw, 6.4rem); font-weight: 800; letter-spacing: -0.03em;
+  font-size: clamp(1.2rem, 4.8vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em;
+  white-space: nowrap; /* keep each section title on a single line */
 }
 .section__lead { margin: 14px 0 0; color: var(--muted); font-size: 1.1rem; max-width: 52ch; }
 
@@ -549,9 +550,22 @@ body.ready .hero__actions, body.ready .dash-stats { opacity: 1; transform: none;
 .exp-item.reveal.in { transform: none; }
 
 .exp-card { padding: 26px 28px; }
-.exp-card__company { color: var(--violet); font-weight: 700; margin: 4px 0 0; }
+.exp-card__brand { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.exp-card__logo { background: #fff; border-radius: 10px; width: 56px; height: 36px; display: grid; place-items: center; overflow: hidden; flex: none; }
+.exp-card__logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.exp-card__company { color: var(--violet); font-weight: 700; margin: 0; }
 .exp-card__meta { color: var(--muted); font-size: .9rem; margin: 2px 0 0; }
 .exp-card ul { margin: 14px 0 16px; padding-left: 18px; color: var(--muted); }
+.exp-awards { margin: 4px 0 16px; display: grid; gap: 10px; }
+.exp-awards__head { display: flex; align-items: center; gap: 8px; margin: 0 0 2px; color: var(--mint); font-weight: 700; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; }
+.exp-awards__head svg { width: 18px; height: 18px; }
+.exp-award { display: flex; gap: 14px; align-items: center; padding: 10px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); text-decoration: none; color: inherit; transition: transform .25s, border-color .25s, background .25s; }
+.exp-award:hover { transform: translateY(-2px); border-color: var(--mint); background: rgba(255,255,255,.08); }
+.exp-award__thumb { width: 84px; height: 58px; object-fit: cover; object-position: left top; border-radius: 8px; flex: none; background: #fff; }
+.exp-award__text { display: grid; gap: 2px; min-width: 0; }
+.exp-award__text b { color: var(--text, #fff); font-size: .95rem; }
+.exp-award__text span { color: var(--muted); font-size: .88rem; line-height: 1.35; }
+.exp-award__text small { color: var(--violet); font-size: .78rem; font-weight: 600; }
 .exp-card li + li { margin-top: 6px; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }

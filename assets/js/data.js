@@ -17,7 +17,7 @@ const PORTFOLIO = {
   tagline:
     "I love turning complex technical problems into simple, practical solutions — lately with LLMs, RAG pipelines and automation.",
   location: "Pune, India",
-  availability: "Open to internships and collaborations",
+  availability: "Open to collaborations",
   email: "anushkagurav532@gmail.com",
   resume: "assets/resume.pdf",       // replace this file to update the resume
 
@@ -28,9 +28,9 @@ const PORTFOLIO = {
     enabled: true,
     lines: [
       "Hey! Welcome to Anushka's portfolio.",
-      "Two Cisco internships and counting. ✨",
+      "Two Cisco internships. ✨",
       "500+ problems solved. Bugs don't stand a chance.",
-      "Ask me about RAG pipelines. Actually, ask Anushka.",
+      "Ask me about RAG pipelines.",
       "Scroll down. The projects are the fun part.",
       "Try moving your cursor through the name."
     ]
@@ -46,14 +46,23 @@ const PORTFOLIO = {
   /* ---------- Education (newest first) ---------- */
   education: [
     {
-      degree: "B.E. in Computer Engineering",
+      degree: "B.Tech in Computer Engineering",
       school: "MKSSS's Cummins College of Engineering for Women, Pune",
       period: "2024 – 2027",
       score: "CGPA 8.9",
       details: [
-        "Coursework: Data Structures & Algorithms, DBMS, Object-Oriented Programming, Computer Networks, Operating Systems",
+        "Coursework: Data Engineering, Cloud Computing, Cybersecurity",
         "Selected for the Cisco Women Program (CWIP)",
         "Selected among the top 100 students nationwide for the IIT Bombay Bootcamp"
+      ]
+    },
+    {
+      degree: "Diploma in Computer Engineering",
+      school: "Government Polytechnic, Karad",
+      period: "2021 – 2024",
+      score: "94.74%",
+      details: [
+        "Coursework: Python, Java, C++, Data Structures, JavaScript, Android Development"
       ]
     }
   ],
@@ -104,11 +113,29 @@ const PORTFOLIO = {
       role: "Software Engineering Intern I",
       company: "Cisco",
       period: "Jun 2026 – Sep 2026",
+      duration: "4 months",
+      logo: "assets/img/cisco-logo.png",
       location: "Bengaluru, Karnataka",
       points: [
         "Built an AI-powered proof of concept that writes context-aware comments and docstrings for Python test scripts using hierarchical intent analysis, following the team's documentation format",
         "Automated 100% of eligible comment and docstring blocks, passing Git checks and cutting manual documentation effort by about 70%",
         "Enriched inputs for internal RAG systems, enabling more contextual blueprint generation, stronger root-cause analysis and more accurate bug-fix recommendations"
+      ],
+      awards: [
+        {
+          title: "Play to Win",
+          detail: "Recognized for the work on the Intent-Aware AI Comment Generation PoC",
+          date: "Aug 2026",
+          by: "Lakshminarayana Reddy B N",
+          image: "assets/img/award-ai-poc.png"
+        },
+        {
+          title: "Play to Win",
+          detail: "Recognized for the contribution to the Qubit article",
+          date: "Sep 2026",
+          by: "Satvinder Gunsi",
+          image: "assets/img/award-qubit.png"
+        }
       ],
       tech: ["Python", "LLMs", "RAG", "Git"]
     },
@@ -116,13 +143,24 @@ const PORTFOLIO = {
       role: "Technical Intern I",
       company: "Cisco",
       period: "Jun 2025 – Aug 2025",
+      duration: "2 months",
+      logo: "assets/img/cisco-logo.png",
       location: "Bengaluru, Karnataka",
       points: [
         "Worked on load balancing, improving performance in high-throughput environments",
         "Fixed flaky test cases in the Load Balancing General and Hashing Characterization modules by analysing logs and finding root causes",
         "Raised detailed PRs with a 100% merge rate, backed by thorough testing"
       ],
-      tech: ["Load balancing", "Test automation", "Debugging", "Git"]
+      awards: [
+        {
+          title: "Think Really Big",
+          detail: "Recognized for excellent work in the Cisco Load Balancing team",
+          date: "Aug 2025",
+          by: "Prince Kumar",
+          image: "assets/img/award-lb.png"
+        }
+      ],
+      tech: ["IOS-XR", "LB", "Git", "Debugging"]
     }
   ],
 
@@ -131,65 +169,35 @@ const PORTFOLIO = {
      to get a generated cover. Put screenshots in assets/img/. */
   projects: [
     {
-      title: "EchoCraft",
+      title: "RAG-Based Document Intelligence System",
       category: "AI",
       description:
-        "An AI podcast generator: turn a topic or script into multilingual, lifelike podcast audio with segment-wise playback and automatic merging into one final file.",
-      tech: ["React", "Node.js", "Firebase", "Gemini API", "Murf AI"],
+        "A Retrieval-Augmented Generation agent that ingests PDFs from Google Drive, generates vector embeddings and stores them in Pinecone. Users query their documents through Telegram and get context-aware, document-grounded answers, all orchestrated with n8n.",
+      tech: ["n8n", "RAG", "LLM", "Embedding", "Vector Database", "Git"],
       image: "",
-      live: "https://famous-trifle-7f1eb6.netlify.app/",
-      code: "https://github.com/Anushka-Gurav/EchoCraft",
+      live: "",
+      code: "https://github.com/Anushka-Gurav/Rag_Agent",
       featured: true
     },
     {
-      title: "RAG Document Intelligence",
+      title: "AI-Powered Production Failure Analyser",
       category: "AI",
       description:
-        "An AI agent that ingests PDFs from Google Drive, embeds them into Pinecone and answers questions about them over Telegram with document-grounded replies.",
-      tech: ["n8n", "RAG", "LLM", "Pinecone"],
+        "An intelligent failure analysis system that simulates live system metrics and logs, with injectable failures such as memory leaks, database timeouts and disk exhaustion. It uses the Groq API to examine metrics, logs and uploaded PDFs, then produces severity ratings, root causes and actionable fix recommendations.",
+      tech: ["Python", "FastAPI", "Groq API", "JavaScript", "PyPDF2", "Git"],
       image: "",
       live: "",
-      code: "https://github.com/Anushka-Gurav/Rag_Agent"
+      code: ""
     },
     {
-      title: "Smart ML Model Trainer",
-      category: "Full-stack",
-      description:
-        "Upload a dataset, then train, compare and export ML models from one dashboard with automated preprocessing and live training progress. Built as a team.",
-      tech: ["React", "FastAPI", "MongoDB", "scikit-learn"],
-      image: "",
-      live: "https://ml-model-trainer.netlify.app/",
-      code: "https://github.com/Anushka-Gurav/Tech_Titans_ML_Model_Trainer"
-    },
-    {
-      title: "Training & Placement App",
+      title: "Training & Placement Application",
       category: "Android",
       description:
-        "An Android app for college placements: track company recruitment rounds, share interview experiences and follow placement progress.",
-      tech: ["Java", "XML", "Firebase", "Android"],
+        "An Android application for managing college placement activities and analysis: track company recruitment processes, maintain students' interview experiences and monitor placement progress through a placement tracker.",
+      tech: ["Java", "XML", "Firebase", "Android", "Git"],
       image: "",
       live: "",
       code: "https://github.com/Anushka-Gurav/Placement_App"
-    },
-    {
-      title: "Library System",
-      category: "Java",
-      description:
-        "A library management system for books, members and issue/return records.",
-      tech: ["Java", "OOP"],
-      image: "",
-      live: "",
-      code: "https://github.com/Anushka-Gurav/Library-System"
-    },
-    {
-      title: "Custom Data Structures",
-      category: "Java",
-      description:
-        "Data structures implemented from scratch in Java.",
-      tech: ["Java", "DSA"],
-      image: "",
-      live: "",
-      code: "https://github.com/Anushka-Gurav/SY_95_Custom_DataStructure"
     }
   ],
 
@@ -200,6 +208,7 @@ const PORTFOLIO = {
     { highlight: "CWIP", title: "Cisco Women Program", detail: "Selected for Cisco's women in tech program" },
     { highlight: "2nd", title: "IEEE MMCOE Ideathon", detail: "Second rank" },
     { highlight: "2nd", title: "TechTangle", detail: "Second rank in the case study competition" },
+    { highlight: "3rd", title: "Atlas Copco Case Study Competition", detail: "Third rank" },
     { highlight: "500+", title: "Problems solved", detail: "Across LeetCode, GeeksforGeeks and more" }
   ],
 
@@ -218,17 +227,26 @@ const PORTFOLIO = {
     },
     {
       platform: "LeetCode",
-      username: "",                    // TODO: add username + url
-      url: "",
+      username: "Anushka0201",
+      url: "https://leetcode.com/u/Anushka0201/",
       stat: 500, suffix: "+", statLabel: "problems solved",
       extra: "Combined with GeeksforGeeks",
       progress: 72,
       color: "#FFA116"
     },
     {
+      platform: "GeeksforGeeks",
+      username: "anushkagughj",
+      url: "https://www.geeksforgeeks.org/profile/anushkagughj",
+      stat: null, statLabel: "",
+      extra: "Practice problems and DSA",
+      progress: 70,
+      color: "#2F8D46"
+    },
+    {
       platform: "YouTube",
-      username: "tech.withana",
-      url: "https://www.youtube.com/@tech.withana",
+      username: "AnushkaGurav-j7i",
+      url: "https://www.youtube.com/@AnushkaGurav-j7i",
       stat: null, statLabel: "",
       extra: "Tech videos and tutorials",
       progress: 65,
@@ -250,7 +268,7 @@ const PORTFOLIO = {
     github: "https://github.com/Anushka-Gurav",
     linkedin: "https://www.linkedin.com/in/anushka-gurav-39066a314/",
     instagram: "https://www.instagram.com/tech.withana",
-    youtube: "https://www.youtube.com/@tech.withana",
+    youtube: "https://www.youtube.com/@AnushkaGurav-j7i",
     medium: "https://medium.com/@anushkagurav532",
     twitter: ""                       // leave "" to hide
   },
